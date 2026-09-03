@@ -1,0 +1,21 @@
+from player import Player
+import pygame
+
+
+#This player has high damage, medium defense, slow speed
+class Warrior(Player):
+
+    def __init__(self, name, x, y):
+        super().__init__(name, x, y)
+        self.attack = 20
+        self.speed = 8
+
+#This attack has extremely high base damage, but doesn't fare too well against enemies with a similar defense to your attack
+    def swingSword(self, opp_defense):
+        return 40 * self.attack//opp_defense + 1
+
+    def draw(self, surface):
+        rect = pygame.Rect(self.x - 20, self.y - 20, 40, 40)
+        pygame.draw.rect(surface, (0, 240, 0), rect)
+
+    
