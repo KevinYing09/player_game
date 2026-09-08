@@ -33,6 +33,9 @@ class Player:
         if self.health > self.max_health:
             self.health = self.max_health
 
+    def attack(self, opp_defense):
+        return 20 * self.damage/opp_defense
+
 #The player levels up for every 100 score points. This increases their max health by 10 for each level
     def levelUp(self):
         old_level = self.level
