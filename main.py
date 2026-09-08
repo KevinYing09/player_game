@@ -73,7 +73,10 @@ def main():
 
     p1 = choose_class(screen, clock, title_font, option_font, "Player 1: Choose your class", "Bob", 200, 300)
     p2 = choose_class(screen, clock, title_font, option_font, "Player 2: Choose your class", "Billy", 600, 300)
-
+    p3 = choose_class(screen, clock, title_font, option_font, "Player 3: Choose your class", "Joe", 400, 300)
+    players = [p1, p2, p3]
+    for player in players:
+        print(player.attack(10))
     running = True
     while running:
         for event in pygame.event.get():
