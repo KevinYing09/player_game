@@ -13,7 +13,8 @@ class Player:
         self.speed = 10
         self.x = x
         self.y = y
-    
+        self.size = 20
+
     def takeDamage(self, amount):
         self.health -= amount
         if self.health <= 0:
@@ -41,6 +42,10 @@ class Player:
         self.defense += 5 * (self.level - old_level)
         return self.level
 
-    def move(self, dx, dy):
+    def move(self, dx, dy, screen_width=None, screen_height=None):
         self.x += dx * self.speed
         self.y += dy * self.speed
+        if screen_width is not None:
+            self.x = max(self.size, min(self.x, screen_width - self.size))
+        if screen_height is not None:
+            self.y = max(self.size, min(self.y, screen_height - self.size))
