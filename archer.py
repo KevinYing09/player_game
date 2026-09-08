@@ -7,13 +7,15 @@ class Archer(Player):
 
     def __init__(self, name, x, y):
         super().__init__(name, x, y)
-        self.attack = 15
+        self.damage = 15
         self.defend = 15
+        self.max_health = 75
+        self.health = 75
         self.speed = 12
 
 #This attack in between the other two attack types
-    def castSpell(self, opp_defense):
-        return 30 * self.attack/opp_defense + 10
+    def attack(self, opp_defense):
+        return 30 * self.damage/opp_defense + 10
 
     def draw(self, surface):
         # Calculate the 3 points of the triangle relative to (x, y)
